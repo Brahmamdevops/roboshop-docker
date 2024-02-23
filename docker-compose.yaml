@@ -10,7 +10,8 @@ services:
 
   catalogue:
     image: catalogue
-    depends_on: mongodb
+    depends_on:
+    - mongodb
 
   web:
     image: web
