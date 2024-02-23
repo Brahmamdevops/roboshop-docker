@@ -6,3 +6,13 @@ copy package.json /opt/server/
 copy server.js /opt/server/
 RUN npm install
 CMD ["node", "server.js"]
+
+
+
+docker build -t cata:1.0.0
+
+
+
+docker run -d --name cata cata:1.0.0  network 
+
+docketr network
