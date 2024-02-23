@@ -13,9 +13,9 @@ services:
     depends_on:
     - mongodb
 
-  web:
-    image: web
-    ports:
-    - "80:80"
-    depends_on: 
-    - catalogue
+  # web:
+  #   image: web
+  #   ports:
+  #   - "80:80"
+  #   depends_on: 
+  #   - catalogue
