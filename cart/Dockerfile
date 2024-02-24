@@ -1,7 +1,23 @@
-FROM node:18
+# FROM node:18
+# EXPOSE 8080
+# WORKDIR /opt/server/
+# copy package.json /opt/server/
+# copy server.js /opt/server/
+# RUN npm install
+# CMD ["node", "server.js"]
+
+
+# best practices
+
+
+FROM node:18.19.1-alpine3.19
 EXPOSE 8080
-WORKDIR /opt/server/
-copy package.json /opt/server/
-copy server.js /opt/server/
+RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
+WORKDIR /opt/server
+ENV MONGO=true
+RUN chown roboshop:roboshop /opt/server
+USER roboshop
+COPY package.json /opt/server/
+COPY server.js /opt/server/
 RUN npm install
 CMD ["node", "server.js"]
